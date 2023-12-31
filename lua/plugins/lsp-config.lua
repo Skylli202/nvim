@@ -22,23 +22,25 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
-			lspconfig.lua_ls.setup({ capabilities = capabilities })
-			lspconfig.tsserver.setup({ capabilities = capabilities })
-			lspconfig.groovyls.setup({
-				capabilities = capabilities,
-				cmd = {
-					"java",
-					"-jar",
-					"/home/skylli/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar",
-				},
-				settings = {
-					groovy = {
-						classpath = {
-							"/home/skylli/.sdkman/candidates/groovy/current/lib",
-						},
-					},
-				},
-			})
+      lspconfig.groovyls.setup({
+        capabilities = capabilities,
+        cmd = {
+          "java",
+          "-jar",
+          "/home/skylli/.local/share/nvim/mason/packages/groovy-language-server/build/libs/groovy-language-server-all.jar",
+        },
+        settings = {
+          groovy = {
+            classpath = {
+              "/home/skylli/.sdkman/candidates/groovy/current/lib",
+            },
+          },
+        },
+      })
+      lspconfig.html.setup({ capabilities = capabilities })
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
+			lspconfig.svelte.setup({ capabilities = capabilities })
+      lspconfig.tsserver.setup({ capabilities = capabilities })
 
 			-- Keymaps
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
