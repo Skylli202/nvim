@@ -12,7 +12,7 @@ return {
 	{
 		"williamboman/mason-lspconfig.nvim",
 		opts = {
-			ensure_installed = { "groovyls", "html", "lua_ls", "svelte", "tsserver" },
+			ensure_installed = { "gopls", "groovyls", "html", "lua_ls", "rust_analyzer", "svelte", "templ", "tsserver" },
 			auto_install = true,
 		},
 	},
@@ -41,6 +41,7 @@ return {
       lspconfig.lua_ls.setup({ capabilities = capabilities })
 			lspconfig.svelte.setup({ capabilities = capabilities })
       lspconfig.tsserver.setup({ capabilities = capabilities })
+      lspconfig.gopls.setup({ capabilities = capabilities })
 
 			-- Keymaps
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
